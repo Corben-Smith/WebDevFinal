@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='/css/style.css' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <title> Drivers </title>
+</head>
+<body class= "bg-white font-Sarabun font-semibold bg-[url('/images/bg.jpg')] bg-no-repeat bg-cover text-lg">
+    <nav class="bg-white">
+        <div class="mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center">
+                        <div class="flex items-center justify-center sm:items-stretch sm:justify-start">
+                            <img class="h-20 w-auto" src="images/Nascar-Logo.png" alt="Your Company">
+                        </div>
+                        <div class="hidden sm:ml-6 sm:block">
+                            <div class="flex space-x-4 absolute inset-y-4 right-2">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a href="#" class="bg-black text-white rounded-md px-3 py-1 text-sm font-medium" aria-current="page">Home</a>
+                                <a href="#" class="bg-yellow-400 text-white hover:bg-black hover:text-white rounded-md px-3 py-1 text-sm font-medium">Drivers</a>
+                                <a href="#" class="bg-red-600 text-white hover:bg-black hover:text-white rounded-md px-3 py-1 text-sm font-medium">Teams</a>
+                                <a href="#" class="bg-blue-700 text-white hover:bg-black hover:text-white rounded-md px-3 py-1 text-sm font-medium">History</a>
+                                <a href="#" class="bg-yellow-400 text-white hover:bg-black hover:text-white rounded-md px-3 py-1 text-sm font-medium">Contacts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <ul class="flex flex-row-reverse flex-wrap">
+        <% for (var i = 0; i < locals.drivers.length;  i++) 
+        { %>
+            <%var imageUrl = `/images/driverimages/${locals.drivers[i].carNumber}.png`;%>
+            <%if (locals.drivers[i].name == "David Ragan"){ %>
+            <%   imageUrl = `/images/driverimages/380.png`;}%>
+            <%if (locals.drivers[i].name == "Ryan Newman"){  %>
+            <%   imageUrl = `/images/driverimages/6_2.png`;}%>
+            <a class="text-black bg-white  overflow-hidden text-center align-top border-nascarRed border-4 rounded-3xl m-8 pb-2" href="./<%=i%>"><li  style="background-image: url('<%= imageUrl %>')" class="block border-nascarBlue border-b-4 py-24 px-2 bg-center bg-cover bg-no-repeat border-solid text-white w-48"></li><%= locals.drivers[i].name %></a>
+            <% } %>    
+    </ul>
+
+</body>
+</html>

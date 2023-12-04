@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='/css/style.css' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <title><%= locals.name%>'s Driver Page</title>
+</head>
+  
+<body class= "bg-black font-Sarabun font-semibold bg-[url('/images/bg.jpg')] bg-no-repeat bg-cover text-lg">
+    <nav class="bg-white">
+        <div class="mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center">
+                        <div class="flex items-center justify-center sm:items-stretch sm:justify-start">
+                            <img class="h-20 w-auto" src="images/Nascar-Logo.png" alt="Your Company">
+                        </div>
+                        <div class="hidden sm:ml-6 sm:block">
+                            <div class="flex space-x-4 absolute inset-y-4 right-2">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a href="#" class="bg-black text-white rounded-md px-3 py-1 text-sm font-medium" aria-current="page">Home</a>
+                                <a href="#" class="bg-yellow-400 text-white hover:bg-black hover:text-white rounded-md px-3 py-1 text-sm font-medium">Drivers</a>
+                                <a href="#" class="bg-red-600 text-white hover:bg-black hover:text-white rounded-md px-3 py-1 text-sm font-medium">Teams</a>
+                                <a href="#" class="bg-blue-700 text-white hover:bg-black hover:text-white rounded-md px-3 py-1 text-sm font-medium">History</a>
+                                <a href="#" class="bg-yellow-400 text-white hover:bg-black hover:text-white rounded-md px-3 py-1 text-sm font-medium">Contacts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex my-4">
+        <div class="flex-1 w-auto mx-48 bg-white border-solid border-narcar rounded-3xl border-8 bg-[url('/images/checker.jpg')] bg-cover overflow-hidden">
+            <%var imageUrl = `/images/driverimages/${locals.carNumber}.png`; %>
+            <%if (locals.name == "David Ragan"){ %>
+            <%   imageUrl = `/images/driverimages/38_2.png`;}%>
+            <%if (locals.name == "Ryan Newman"){  %>
+            <%   imageUrl = `/images/driverimages/6_2.png`;}%>
+
+            <img class="object-cover mx-2 h-full" src="<%=imageUrl%>">
+        </div>
+        <div class="flex-initial w-1/2 bg-white px-3 py-2 m-2 rounded-xl">
+            <h1 class="p-2 my-2 rounded-lg text-nascarBlue font-bold text-center border-solid border-nascarRed border-2"><%= locals.name %></h1>
+            <ul class = "list-none mx-2">
+                <li class=" border-b-2 text-black p-2 my-2 rounded-lg">Car Number: <%= locals.carNumber %></li>
+                <li class=" border-b-2 text-black p-2 my-2 rounded-lg">Age: <%= locals.age %></li>
+                <li class=" border-b-2 text-black p-2 my-2 rounded-lg">Team: <%= locals.team %></li>       
+                <li class=" border-b-2 text-black p-2 my-2 rounded-lg">Hometown: <%=locals.home %></li>   
+                <li class=" border-b-2 text-black p-2 my-2 rounded-lg">Championship Wins: <%= locals.championship %></li> 
+                <li class=" border-b-2 text-black p-2 my-2 rounded-lg">Wins: <%=locals.wins %></li>   
+            </ul>
+        </div>
+    </div>
+    <div>
+        <button id="myButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Click me
+        </button>          
+    </div>
+    <script>
+        // Select the button
+        const myButton = document.getElementById('myButton');
+        
+        // Add a click event listener
+        myButton.addEventListener('click', function() {
+            window.location.href="https://google.com"
+        })
+    </script>
+</body>
+</html>
